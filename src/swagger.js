@@ -1,10 +1,26 @@
 import swaggerAutogen from 'swagger-autogen'
 const doc = {
   info: {
-    title: 'Node js and express documentation',
-    description: 'listing all endpoints description'
+    version: "1.0.0",
+    title: 'REST API',
+    description: 'This Documentation is my Learning Purpose'
   },
-  host: 'localhost:4000'
+  host: 'localhost:4000',
+  basePath: '/',
+  schemes: ['http', 'https'],
+  consumes: ['application/json'],
+  produces: ['application/json'],
+  securityDefinitions: {
+    apiKeyAuth: {
+      type: 'apiKey',
+      in: 'header',
+      name: 'X-API-KEY',
+      description: 'Some description...'
+    }
+  },
+  components: {
+  },
+  definitions: {}
 };
 
 const outputFile = './swagger-output.json';

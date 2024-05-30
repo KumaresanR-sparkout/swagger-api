@@ -1,19 +1,37 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Node js and express documentation",
-    "description": "listing all endpoints description",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": "This Documentation is my Learning Purpose"
   },
   "host": "localhost:4000",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-KEY",
+      "description": "Some description..."
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
   ],
   "paths": {
     "/api/v1/user": {
       "post": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Register Data",
         "parameters": [
           {
             "name": "body",
@@ -26,13 +44,19 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "User registered successfully."
+          },
+          "500": {
+            "description": "Server failure."
           }
         }
       },
       "get": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get user Details",
         "responses": {
           "default": {
             "description": ""
