@@ -19,14 +19,26 @@ export const swaggerPostExample = async (req, res) => {
         /*  
         #swagger.tags = ['Users']
         #swagger.description='Register Data'
-        #swagger.parameters['body'] = {
-                    in: 'body',
-                    required: true
-        } 
+        */
+        /* #swagger.security = [{
+             "bearerAuth": []
+     }] */
+        /*  #swagger.requestBody = {
+                required: true,
+                content: {
+                    "application/json": {
+                            schema: {
+                                "userName":"",
+                                "email":""
+                            } 
+                    }
+                }
+            } 
         */
 
         // #swagger.responses[200] = { description: 'User registered successfully.' }
-        return response.sendSuccess(res, 200, 'swagger example route called', [req.body])
+        console.log(req.header('Authorization'))
+        return response.sendSuccess(res, 200, 'swagger example route called', [{...req.body,'toekn':req.header('Authorization')}])
     }
     catch (error) {
         // #swagger.responses[500] = { description: 'Server failure.'}

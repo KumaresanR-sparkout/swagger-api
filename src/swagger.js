@@ -1,5 +1,6 @@
 import swaggerAutogen from 'swagger-autogen'
 const doc = {
+  openapi: '3.0.3',
   info: {
     version: "1.0.0",
     title: 'REST API',
@@ -19,6 +20,12 @@ const doc = {
     }
   },
   components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer'
+      }
+    }
   },
   definitions: {}
 };

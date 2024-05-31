@@ -10,7 +10,10 @@ app.use(express.json())
 app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/api/v1', mainRouter)
-
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerDocument);
+});
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`)
 });
